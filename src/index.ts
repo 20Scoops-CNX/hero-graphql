@@ -1,11 +1,9 @@
+require('dotenv').config()
 import { connectDB } from './database/index';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import schema from './schema';
 import resolvers from './resolvers';
-// import * as dotenv from "dotenv";
-require('dotenv').config()
-
 
 const PORT = process.env.PORT || 4000;
 
