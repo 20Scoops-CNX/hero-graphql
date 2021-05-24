@@ -9,7 +9,7 @@ const linkSchema = gql`
     heros: [Hero!]
   }
   type Mutation {
-    create: Hero!
+    create(body: HeroInput!): Hero!
   }
 `;
 
