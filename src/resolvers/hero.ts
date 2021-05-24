@@ -1,19 +1,18 @@
+import heroModel from './../models/hero';
+
 export default {
   Query: {
-    heros: async () => {
-      return [{ name: '20scoops HERO 1' }];
+    heros: async (_: any, params: any) => {
+      return await heroModel.find().limit(100).skip(params.skip);
     },
-    hero: async () => {
-      return {
-        name: '20scoops',
-      };
+    hero: async (_:any, params: any) => {
+      return await heroModel.findById(params.id)
     },
   },
 
   Mutation: {
     create: async () => {
       const user = '20scoops CNX';
-
       return user;
     },
   },
