@@ -15,9 +15,12 @@
   "author": "20scoops CNX Team",
   "license": "ISC",
   "dependencies": {
+    "@graphql-tools/merge": "^6.2.14",
     "apollo-server-express": "^2.24.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "mongoose": "^5.12.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",

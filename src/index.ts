@@ -1,24 +1,18 @@
+import { connectDB } from './database/index';
 import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
+import schema from './schema';
+import resolvers from './resolvers';
+// import * as dotenv from "dotenv";
+require('dotenv').config()
+
 
 const PORT = process.env.PORT || 4000;
 
 (async () => {
-  // Construct a schema, using GraphQL schema language
-  const typeDefs = gql`
-    type Query {
-      hello: String
-    }
-  `;
+  connectDB();
 
-  // Provide resolver functions for your schema fields
-  const resolvers = {
-    Query: {
-      hello: () => 'Hello world!',
-    },
-  };
-
-  const server = new ApolloServer({ typeDefs, resolvers, playground: true, introspection: true });
+  const server = new ApolloServer({ typeDefs: schema, resolvers, playground: true, introspection: true });
   await server.start();
 
   const app = express();
